@@ -1,14 +1,14 @@
 {
-  "name": "LiveHost",
-  "displayName": "Live Host",
-  "publisher": "zhoumingjie",
-  "description": "1. Quickly edit system hosts file;； 2. Get best ip about github",
+  "name": "LiveHost-Extend",
+  "displayName": "Live Host Extend",
+  "publisher": "yuyue8",
+  "description": "基于 `live-host` 插件修改 1、修改获取 `github ip` 网址 2、增加更新 `DNS解析` 缓存功能",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/mingjiezhou/notes.git"
-	},
+    "type": "git",
+    "url": "https://github.com/mingjiezhou/notes.git"
+  },
   "version": "1.0.3",
-	"icon": "logo.png",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.66.0"
   },
@@ -16,7 +16,7 @@
     "Other"
   ],
   "activationEvents": [
-		"*"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -57,12 +57,21 @@
           "id": "liveHostAuto",
           "name": "host-auto"
         }
+        ,
+        {
+          "id": "liveHostFlushDns",
+          "name": "host-flush_dns"
+        }
       ]
     },
     "viewsWelcome": [
       {
         "view": "liveHostAuto",
         "contents": "\n [获取配置 GitHub Host](command:liveHost.start) \n 欢迎使用live host ^_^，[使用手册](https://github.com/mingjiezhou/notes/issues/13)，源码 [Github](https://github.com/mingjiezhou/live-host)"
+      },
+      {
+        "view": "liveHostFlushDns",
+        "contents": "\n [刷新DNS缓存](command:liveHost.flush_dns)"
       }
     ],
     "commands": [
@@ -93,6 +102,10 @@
           "light": "resources/light/add.svg",
           "dark": "resources/dark/add.svg"
         }
+      },
+      {
+        "command": "liveHost.flush_dns",
+        "title": "FlushDns"
       }
     ],
     "menus": {
@@ -151,12 +164,7 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
-  "devDependencies": {
-
-  },
   "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.10",
     "@types/glob": "^7.2.0",
     "@types/mocha": "^9.1.1",
     "@types/node": "14.x",
@@ -164,8 +172,11 @@
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "@vscode/test-electron": "^2.1.3",
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.10",
     "eslint": "^8.14.0",
     "glob": "^8.0.1",
+    "iconv-lite": "^0.6.3",
     "mocha": "^9.2.2",
     "typescript": "^4.6.4"
   }

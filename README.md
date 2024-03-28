@@ -2,6 +2,8 @@
 
 ### 项目介绍
 
+基于 `live-host` 插件修改 1、修改获取 `github ip` 网址 2、增加更新 `DNS解析` 缓存功能
+
 1. Quickly edit system hosts file; 快速编辑 host 文件。
 
 2. Get best ip about github; 每日获取最佳 github ip 解决 DNS 污染问题。
@@ -11,6 +13,5 @@
 [源码](https://github.com/mingjiezhou/live-host)
 
 [问题反馈](https://github.com/mingjiezhou/live-host/issues)
-
 
 ![截图](https://user-images.githubusercontent.com/37775265/167404760-e33afdcf-8ba6-4cdf-9741-4d3284974e86.png)

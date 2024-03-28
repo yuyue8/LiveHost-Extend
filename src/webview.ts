@@ -6,7 +6,7 @@ const cats = {
 	'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
 	'Testing Cat': 'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif'
 };
-let data:any = "正在获取最新配置";
+let data: any = "正在获取最新配置";
 
 function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
 	return {
@@ -21,7 +21,7 @@ function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
 /**
  * Manages cat coding webview panels
  */
- export class CatCodingPanel {
+export class CatCodingPanel {
 	/**
 	 * Track the currently panel. Only allow a single panel to exist at a time.
 	 */
@@ -194,8 +194,8 @@ function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
 			</html>`;
 	}
 	public async getIp() {
-    let urlGithub = `https://raw.githubusercontent.com/isevenluo/github-hosts/master/hosts`;
-		axios.get(urlGithub).then((res:any) => {
+		let urlGithub = `https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts`;
+		axios.get(urlGithub).then((res: any) => {
 			let list = '\n'.concat(res.data).split('#');
 			list.splice(-4, 2);
 			data = list.join('#');
@@ -205,7 +205,7 @@ function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
 		});
 	}
 
-	
+
 }
 
 function getNonce() {

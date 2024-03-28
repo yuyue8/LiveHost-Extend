@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { CatCodingPanel } from './webview';
 import { HostTreeDataProvider, HostConfig } from './treeDataProvider';
+import { FlushDns } from './flush_dns';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -31,9 +32,12 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('liveHost.start', () => {
 		CatCodingPanel.createOrShow(context.extensionUri);
 	}));
+	context.subscriptions.push(vscode.commands.registerCommand('liveHost.flush_dns', () => {
+		FlushDns.start();
+	}));
 
-	vscode.workspace.onDidSaveTextDocument((e:vscode.TextDocument) => {
-		if(e.fileName && e.fileName.indexOf('.host') > -1){
+	vscode.workspace.onDidSaveTextDocument((e: vscode.TextDocument) => {
+		if (e.fileName && e.fileName.indexOf('.host') > -1) {
 			hostTreeDataProvider.syncChooseHost();
 		}
 	});
@@ -41,7 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
 
 
 
